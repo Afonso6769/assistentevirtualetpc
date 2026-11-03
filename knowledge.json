@@ -1,17 +1,17 @@
 [
   {
     "categoria": "Contactos",
-    "conteudo": "A ETPC (Escola Profissional de Carvalhos) situa-se na Alameda Padre Luís Campos, 4415-257 Pedroso, Vila Nova de Gaia. Telefone: 227 860 300. Email: geral@etpc.pt.",
+    "conteudo": "A ETPC (Escola Profissional de Carvalhos) fica na Alameda Padre Luís Campos, 4415-257 Pedroso, Vila Nova de Gaia. Telefone: 227 860 300. Email: geral@etpc.pt.",
     "url": "https://www.etpc.pt/contactos"
   },
   {
     "categoria": "Cursos",
-    "conteudo": "A ETPC disponibiliza Cursos Profissionais de Nível 4 de Qualificação em áreas como Informática de Gestão, Eletrónica, Automação e Comando, Design Gráfico e Restauração.",
+    "conteudo": "A ETPC disponibiliza Cursos Profissionais de Nível 4 em áreas como Informática de Gestão, Eletrónica, Automação e Comando, Design Gráfico e Restauração.",
     "url": "https://www.etpc.pt/cursos"
   },
   {
     "categoria": "Sobre",
-    "conteudo": "A ETPC é uma instituição de ensino profissional focada na preparação prática e técnica dos alunos para o mercado de trabalho e prosseguimento de estudos.",
+    "conteudo": "A ETPC é uma escola profissional focada no ensino prático e técnico, preparando alunos para o mercado de trabalho e para o ensino superior.",
     "url": "https://www.etpc.pt/escola"
   }
 ]

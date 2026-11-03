@@ -1,76 +1,75 @@
-import fs from 'fs';
-import path from 'path';
+const fs = require('fs');
+const path = require('path');
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Método não permitido' });
   }
 
-  const { question } = req.body;
-  if (!question || question.trim() === '') {
-    return res.status(400).json({ error: 'A pergunta não pode estar vazia.' });
+  const { question } = req.body || {};
+  if (!question || typeof question !== 'string' || question.trim() === '') {
+    return res.status(400).json({ reply: 'Por favor, escreve uma pergunta válida.' });
   }
 
   try {
-    // 1. Carregar base de dados
+    // 1. Carregar a base de dados local
     const filePath = path.join(process.cwd(), 'knowledge.json');
     const rawData = fs.readFileSync(filePath, 'utf8');
     const knowledgeBase = JSON.parse(rawData);
 
-    // 2. Procurar excertos relevantes por palavras-chave
+    // 2. Filtrar conteúdos relacionados com a pergunta
     const query = question.toLowerCase();
-    const relevantDocs = knowledgeBase.filter(item => 
-      item.conteudo.toLowerCase().includes(query) ||
-      query.split(' ').some(word => word.length > 3 && item.conteudo.toLowerCase().includes(word))
-    );
+    const matches = knowledgeBase.filter(item => {
+      const text = item.conteudo.toLowerCase();
+      return text.includes(query) || query.split(' ').some(word => word.length > 3 && text.includes(word));
+    });
 
-    const contextText = relevantDocs.length > 0 
-      ? relevantDocs.map(d => `- ${d.conteudo} (Fonte: ${d.url})`).join('\n')
-      : "Nenhuma informação direta encontrada no ficheiro de dados.";
+    const contextText = matches.length > 0
+      ? matches.map(d => `- ${d.conteudo} (Fonte: ${d.url})`).join('\n')
+      : "Nenhuma informação direta encontrada na base de dados da escola.";
 
-    // 3. System Prompt Restritivo
-    const systemInstruction = `
+    // 3. Instrução para a Inteligência Artificial (System Prompt)
+    const systemPrompt = `
 És o assistente virtual oficial da ETPC (Escola Profissional de Carvalhos).
 REGRAS OBRIGATÓRIAS:
 1. Responde APENAS com base no CONTEXTO abaixo.
-2. Se a informação não estiver no contexto ou for insuficiente, responde exatamente: "Não disponho de informação suficiente no site da escola para responder a essa questão."
-3. Se a pergunta for sobre futebol, receitas, política ou cultura geral fora da escola, recusa educadamente indicando que apenas respondes sobre a ETPC.
-4. NUNCA inventes dados nem uses conhecimento prévio fora do contexto.
-5. Quando responderes com sucesso, inclui sempre no final: "Fonte: [URL]".
+2. Se a informação não estiver no contexto, responde exatamente: "Não disponho de informação suficiente no site da escola para responder a essa questão."
+3. Se a pergunta for sobre futebol, receitas, política ou outros temas fora da escola, recusa educadamente indicando que apenas respondes sobre a ETPC.
+4. NUNCA inventes dados.
+5. Sempre que responderes com sucesso, inclui a fonte no final: "Fonte: URL".
 
 CONTEXTO:
 ${contextText}
-    `;
 
-    // 4. Chamada à API da Gemini
+PERGUNTA: ${question}
+`;
+
+    // 4. Chamada à API do Google Gemini
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) {
-      throw new Error("Chave da API não configurada.");
+      return res.status(500).json({ reply: 'Erro interno: Chave de API não configurada no servidor.' });
     }
 
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        contents: [
-          { role: 'user', parts: [{ text: `${systemInstruction}\n\nPergunta do utilizador: ${question}` }] }
-        ]
+        contents: [{ parts: [{ text: systemPrompt }] }]
       })
     });
 
+    const data = await response.json();
+
     if (!response.ok) {
-      throw new Error(`Erro na API do Gemini: ${response.statusText}`);
+      console.error('Erro na API Gemini:', data);
+      return res.status(500).json({ reply: 'Ocorreu um erro ao consultar a inteligência artificial.' });
     }
 
-    const data = await response.json();
-    const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Não foi possível obter resposta.";
-
+    const reply = data.candidates?.[0]?.content?.parts?.[0]?.text || "Não foi possível gerar uma resposta.";
     return res.status(200).json({ reply });
 
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ 
-      reply: "O assistente está temporariamente indisponível. Por favor, tente novamente mais tarde ou consulte diretamente o site da ETPC." 
-    });
+  } catch (err) {
+    console.error('Erro no handler:', err);
+    return res.status(500).json({ reply: 'O assistente está temporariamente indisponível. Tente novamente mais tarde.' });
   }
-}
+};

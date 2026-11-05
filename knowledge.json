@@ -1,17 +1,87 @@
 [
   {
-    "categoria": "Contactos",
-    "conteudo": "A ETPC (Escola Profissional de Carvalhos) fica na Alameda Padre Luís Campos, 4415-257 Pedroso, Vila Nova de Gaia. Telefone: 227 860 300. Email: geral@etpc.pt.",
-    "url": "https://www.etpc.pt/contactos"
+    "categoria": "Contactos e Localização",
+    "conteudo": "A Escola Técnico Profissional de Cantanhede (ETPC) localiza-se na Rua Padre Américo, Nº 26, 3060-186 Cantanhede. O telefone de contacto direto é (+351) 231 420 344 e o e-mail oficial é geral@etpc.pt.",
+    "url": "https://etpc.pt/pt/contactos"
   },
   {
-    "categoria": "Cursos",
-    "conteudo": "A ETPC disponibiliza Cursos Profissionais de Nível 4 em áreas como Informática de Gestão, Eletrónica, Automação e Comando, Design Gráfico e Restauração.",
-    "url": "https://www.etpc.pt/cursos"
+    "categoria": "Horários da Secretaria",
+    "conteudo": "O atendimento presencial e telefónico na Secretaria da ETPC funciona nos dias úteis, de segunda a sexta-feira, das 08h30 às 17h00.",
+    "url": "https://etpc.pt/pt/contactos"
   },
   {
-    "categoria": "Sobre",
-    "conteudo": "A ETPC é uma escola profissional focada no ensino prático e técnico, preparando alunos para o mercado de trabalho e para o ensino superior.",
-    "url": "https://www.etpc.pt/escola"
+    "categoria": "Sobre a Escola e Missão",
+    "conteudo": "A ETPC é uma instituição de ensino profissional vocacionada para a formação técnica, prática e humana dos jovens, preparando-os tanto para o mercado de trabalho direto como para o prosseguimento de estudos no Ensino Superior.",
+    "url": "https://etpc.pt"
+  },
+  {
+    "categoria": "Cursos Profissionais - Informática",
+    "conteudo": "A ETPC disponibiliza os Cursos Profissionais de Nível 4 na área de Informática, nomeadamente o Curso de Gestão e Programação de Sistemas Informáticos e o Curso de Sistemas de Computação e Redes. Conferem equivalência ao 12.º ano e duram 3 anos letivos.",
+    "url": "https://etpc.pt"
+  },
+  {
+    "categoria": "Cursos Profissionais - Saúde e Apoio Social",
+    "conteudo": "Na área de Saúde e Serviço Social, a ETPC leciona o Curso Profissional de Técnico/a Auxiliar de Saúde e o Curso de Técnico/a de Apoio à Intervenção Social, com formação em contexto prático e hospitalar/institucional.",
+    "url": "https://etpc.pt"
+  },
+  {
+    "categoria": "Cursos Profissionais - Cuidados de Beleza",
+    "conteudo": "Os cursos profissionais da área do bem-estar na ETPC incluem o Curso de Esteticista e o Curso de Cabeleireiro/a, com salas de aula e gabinetes equipados com tecnologia do setor.",
+    "url": "https://etpc.pt"
+  },
+  {
+    "categoria": "Cursos Profissionais - Desporto",
+    "conteudo": "O Curso Profissional de Técnico/a de Desporto capacita os alunos para o planeamento, orientação e gestão de atividades físicas e desportivas em ginásios, clubes desportivos, escolas e autarquias.",
+    "url": "https://etpc.pt"
+  },
+  {
+    "categoria": "Cursos Profissionais - Gestão e Comunicação",
+    "conteudo": "A ETPC leciona os Cursos Profissionais de Técnico/a de Comunicação e Marketing e Técnico/a de Gestão e Administração, focados em contabilidade, marketing digital, redes sociais e organização empresarial.",
+    "url": "https://etpc.pt"
+  },
+  {
+    "categoria": "Cursos Profissionais - Restauração e Cozinha",
+    "conteudo": "O Curso Profissional de Técnico/a de Cozinha/Pastelaria e Restauração ensina técnicas culinárias, nutrição, controlo alimentar e serviço de sala, preparando os alunos para a hotelaria e restauração.",
+    "url": "https://etpc.pt"
+  },
+  {
+    "categoria": "Cursos Profissionais - Eletrónica e Automação",
+    "conteudo": "O Curso Profissional de Técnico/a de Eletrónica, Automação e Comando leciona robótica, automação industrial, manutenção de circuitos e sistemas de controlo elétrico.",
+    "url": "https://etpc.pt"
+  },
+  {
+    "categoria": "Cursos CEF (Educação e Formação)",
+    "conteudo": "Os Cursos de Educação e Formação (CEF) da ETPC destinam-se a alunos que pretendem obter a equivalência ao 9.º ano de escolaridade e uma certificação profissional de Nível 2 (ex: CEF Operador/a de Informática e CEF Cozinheiro/a).",
+    "url": "https://etpc.pt"
+  },
+  {
+    "categoria": "Inscrições e Admissão",
+    "conteudo": "As candidaturas aos cursos da ETPC são gratuitas e podem ser submetidas online através do formulário de inscrição no site etpc.pt ou presencialmente na Secretaria da escola.",
+    "url": "https://etpc.pt/pt/candidaturas"
+  },
+  {
+    "categoria": "Apoios Sociais e Subsídios",
+    "conteudo": "Os alunos que frequentam os Cursos Profissionais na ETPC têm acesso a apoios financeiros consoante o seu perfil, incluindo bolsa de material de estudo, subsídio de alimentação, subsídio de transporte e bolsa de formação.",
+    "url": "https://etpc.pt"
+  },
+  {
+    "categoria": "Formação em Contexto de Trabalho (FCT / Estágios)",
+    "conteudo": "Todos os Cursos Profissionais da ETPC integram a Formação em Contexto de Trabalho (FCT/Estágio obrigatório) em empresas parceiras da região ou no estrangeiro, garantindo experiência profissional real.",
+    "url": "https://etpc.pt"
+  },
+  {
+    "categoria": "Centro Tecnológico Especializado (CTE)",
+    "conteudo": "A ETPC dispõe de um Centro Tecnológico Especializado (CTE) financiado pelo PRR na área da Informática, dotado de laboratórios digitais, computadores de alto rendimento e equipamentos de última geração.",
+    "url": "https://etpc.pt/pt/centro-tecnologico-especializado"
+  },
+  {
+    "categoria": "Projetos Erasmus+ e Estágios no Estrangeiro",
+    "conteudo": "Através do programa de mobilidade europeia Erasmus+, os alunos da ETPC têm a oportunidade de realizar estágios profissionais noutros países da União Europeia com viagens, alojamento e bolsa totalmente financiados.",
+    "url": "https://etpc.pt"
+  },
+  {
+    "categoria": "Eco-Escolas e Sustentabilidade",
+    "conteudo": "A ETPC é uma Eco-Escola galardoada com a Bandeira Verde, promovendo ativamente atividades ambientais, separação de resíduos, poupança energética e projetos de cidadania ecológica.",
+    "url": "https://etpc.pt"
   }
 ]
